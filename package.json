@@ -1,0 +1,22 @@
+{
+  "name": "bot-codewars",
+  "version": "1.0.0",
+  "description": "Bot to communicate with the database of code wars",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nekall/bot-codewars.git"
+  },
+  "author": "Neka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nekall/bot-codewars/issues"
+  },
+  "homepage": "https://github.com/Nekall/bot-codewars#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
