@@ -9,15 +9,6 @@ client.on('message', async message => {
 	}
 });
 
-
-client.on('message', message => {
-	if (message.content.startsWith(`Ping`)) {
-		message.channel.send('Pong.');
-	} else if (message.content.startsWith(`Beep`)) {
-		message.channel.send('Boop.');
-	}
-});
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.BOT_TOKEN;
@@ -27,3 +18,15 @@ client.once('ready', () => {
 });
 
 client.login(token);
+
+client.on('message', message => {
+	if(message.content.startsWith(`!beep`)) {
+		message.channel.send('Boop.');
+	}
+});
+
+client.on("message", message => {
+  if(message.content === "!ping") {
+    message.channel.send("Pong.")
+  }
+})
