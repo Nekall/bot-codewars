@@ -3,6 +3,7 @@ require('dotenv').config()
 
 client.on('message', async message => {
   url = link = "https://www.codewars.com/api/v1/users/" + args;
+  console.log(args);
 	if(command === '!cw' && arg !== undefined) {
 		const { file } = await fetch(link).then(response => response.json());
 		message.channel.send(file);
