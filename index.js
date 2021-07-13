@@ -24,9 +24,9 @@ client.on("message", message => {
 
 //fetch
 client.on('message', async message => {
-  url = link = "https://www.codewars.com/api/v1/users/" + args;
+  url = "https://www.codewars.com/api/v1/users/" + args;
 	if(command === '!cw' && arg !== undefined) {
-		const { file } = await fetch(link).then(response => response.json());
+		const { file } = await fetch(url).then(response => response.json());
 		message.channel.send(file);
 	}
 });
