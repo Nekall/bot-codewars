@@ -1,9 +1,13 @@
 const fetch = require('node-fetch');
 require('dotenv').config()
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+    console.log(`App is running on port ${ PORT }`);
+});
 
 client.on('message', async message => {
   url = link = "https://www.codewars.com/api/v1/users/" + args;
-	if (command === '!cw' && arg !== undefined) {
+	if(command === '!cw' && arg !== undefined) {
 		const { file } = await fetch(link).then(response => response.json());
 		message.channel.send(file);
 	}
