@@ -4,8 +4,9 @@
   "description": "Bot to communicate with the database of code wars",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
-    "start": "node index.js"
+    "test": "npm test.js",
+    "start": "node index.js",
+    "worker": "node index.js"
   },
   "repository": {
     "type": "git",

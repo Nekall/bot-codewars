@@ -8,3 +8,15 @@ client.once('ready', () => {
 });
 
 client.login(token);
+
+client.on('message', message => {
+	if(message.content.startsWith(`!beep`)) {
+		message.channel.send('Boop.');
+	}
+});
+
+client.on("message", message => {
+  if(message.content === "!ping") {
+    message.channel.send("Pong.")
+  }
+})
