@@ -30,7 +30,6 @@ client.on("message", async message => {
     if(command === 'cw' && args.length !== 0) {
       const encodedUsername = encodeURI(args.shift());
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
-      message.channel.send("Check console");
 
       const userDataEmbed = new Discord.MessageEmbed()
         .setColor('#b1361e')
@@ -45,7 +44,7 @@ client.on("message", async message => {
         .setTimestamp()
         .setFooter('Bot dev par Nekå', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png');
 
-      channel.send(userDataEmbed);
+      message.channel.send(userDataEmbed);
       console.log(userData);
 
     } else if(command === 'cw' && args.length === 0) {
