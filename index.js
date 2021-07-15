@@ -1,4 +1,5 @@
 require("dotenv").config();
+const url = "https://www.codewars.com/api/v1/users/";
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const client = new Discord.Client();
@@ -26,8 +27,11 @@ client.on("message", (message) => {
     };
 
     //test avec arguments
-    if(command === "cw") {
-      console.log(args);
+    if(command === 'cw' && args.length !== 0) {
+      const { file } = await fetch(`${url}args`).then(response => response.json());
+      message.channel.send(file);
+    } else {
+      message.channel.send('Il manque un pseudo CodeWars pour répondre à cette requête.');
     };
 
 });
