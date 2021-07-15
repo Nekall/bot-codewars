@@ -17,16 +17,12 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
-//test
-    if(command === "beep") {
-      message.channel.send('Boop!');
+//easteregg
+    if(command === "internet") {
+      message.channel.send('INTERNET!');
     };
 
-    if(command === "ping") {
-      message.channel.send('Pong!');
-    };
-
-    //test avec arguments
+    //fetch info user cw
     if(command === 'cw' && args.length !== 0) {
       const encodedUsername = encodeURI(args.shift());
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
@@ -34,21 +30,17 @@ client.on("message", async message => {
       const userDataEmbed = new Discord.MessageEmbed()
         .setColor('#b1361e')
         .setAuthor('Code Wars', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png', 'https://www.codewars.com/')
-        .setDescription(`Informations du compte de ${args.shift()}.`)
-        .setThumbnail('https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png')
-        .addFields(
-          { name: 'Rang:', value: userData.ranks.overall.name, inline: true },
-          { name: 'Nombre de Kata terminé:', value: userData.codeChallenges.totalCompleted, inline: true },
-          { name: 'Classement:', value: userData.leaderboardPosition, inline: true },
-        )
+        .setDescription(`Informations du compte de ${userData.username}.`)
+        .addField('Rang:', userData.ranks.overall.name, true)
+        .addField('Classement:', userData.leaderboardPosition, true)
+        .addField('Nombre de Kata terminé:', userData.codeChallenges.totalCompleted, true)
+        .addField('\u200B', '\u200B', true)
         .setTimestamp()
-        .setFooter('Bot dev par Nekå', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png');
-
+        .setFooter('Dev par Nekå', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png');
       message.channel.send(userDataEmbed);
-      console.log(userData);
-
     } else if(command === 'cw' && args.length === 0) {
-      message.channel.send('Il manque un pseudo CodeWars pour répondre à cette requête.');
+
+      message.channel.send('Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: !cw Pseudo');
     };
 
 });
