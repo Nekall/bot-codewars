@@ -24,7 +24,7 @@ client.on("message", async message => {
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars-square.png", "https://www.codewars.com/")
         .addFields(
           { name: "Pour voir les informations d'un utilisateur:", value: "!cw Pseudo" },
-          { name: "Internet ?",value: !internet },
+          { name: "Internet ?",value: "!internet" },
           { name: "\u200B", value: "\u200B" },
         )
         .setTimestamp()
