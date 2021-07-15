@@ -21,7 +21,7 @@ client.on("message", async message => {
     if(command === "help") {
       const helpEmbed = new Discord.MessageEmbed()
         .setColor("#b1361e")
-        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars-square.png", "https://www.codewars.com/")
+        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .addFields(
           { name: "Pour voir les informations d'un utilisateur:", value: "!cw Pseudo" },
           { name: "Internet ?",value: "!internet" },
@@ -47,7 +47,7 @@ client.on("message", async message => {
       };
       const userDataEmbed = new Discord.MessageEmbed()
         .setColor("#b1361e")
-        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars-square.png", "https://www.codewars.com/")
+        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .setDescription(`Informations du compte de ${userData.username}.`)
         .addFields(
           { name: "Rang:", value: userData.ranks.overall.name },
