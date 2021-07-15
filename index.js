@@ -18,16 +18,16 @@ client.on("message", (message) => {
 
 //test
   client.on("message", message => {
-    if(command === `beep`) {
+    if(command === "beep") {
       message.channel.send('Boop!');
     };
 
-    if(command === `ping`) {
+    if(command === "ping") {
       message.channel.send('Pong!');
     };
 
     //test avec arguments
-    if(command === `cw`) {
+    if(command === "cw") {
       console.log(args);
     };
 
