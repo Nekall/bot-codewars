@@ -31,10 +31,12 @@ client.on("message", async message => {
         .setColor('#b1361e')
         .setAuthor('Code Wars', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png', 'https://www.codewars.com/')
         .setDescription(`Informations du compte de ${userData.username}.`)
-        .addField('Rang:', userData.ranks.overall.name, true)
-        .addField('Classement:', userData.leaderboardPosition, true)
-        .addField('Nombre de Kata terminé:', userData.codeChallenges.totalCompleted, true)
-        .addField('\u200B', '\u200B', true)
+        .addFields(
+          { name: 'Rang:', value: userData.ranks.overall.name },
+          { name: 'Classement:',value: userData.leaderboardPosition },
+          { name: 'Nombre de Kata terminé:', value: userData.codeChallenges.totalCompleted },
+          { name: '\u200B', value: '\u200B' },
+        )
         .setTimestamp()
         .setFooter('Dev par Nekå', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png');
       message.channel.send(userDataEmbed);
