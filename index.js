@@ -11,13 +11,12 @@ client.once("ready", () => {
 
 client.on("message", (message) => {
 // Check si prefix présent + pas message du bot
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if(!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
 //test
-  client.on("message", message => {
     if(command === "beep") {
       message.channel.send('Boop!');
     };
@@ -31,18 +30,6 @@ client.on("message", (message) => {
       console.log(args);
     };
 
-  });
-
-//fetch
-
-/*
-client.on("message", async message => {
-  url = "https://www.codewars.com/api/v1/users/" + args;
-	if(command === "!cw" && args !== undefined) {
-		const { file } = await fetch(url).then(response => response.json());
-		message.channel.send(file);
-	}
-  */
-
+});
 
 client.login(token);
