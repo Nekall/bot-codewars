@@ -43,6 +43,6 @@ client.on("message", async message => {
 		message.channel.send(file);
 	}
   */
-});
+
 
 client.login(token);
