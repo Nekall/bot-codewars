@@ -13,31 +13,25 @@ client.on("message", (message) => {
 // Check si prefix présent + pas message du bot
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
 //test
   client.on("message", message => {
-    if(message.content.startsWith(prefix + "beep")) {
+    if(command === `beep`) {
       message.channel.send('Boop!');
-    }
-  });
+    };
 
-  client.on("message", message => {
-    if(message.content.startsWith(prefix + "ping")) {
+    if(command === `ping`) {
       message.channel.send('Pong!');
-    }
-  })
+    };
 
-//test avec arguments
-  client.on("message", message => {
-    if(message.content.startsWith(prefix + "cw")) {
-      message.channel.send(args);
-    }
-  })
+    //test avec arguments
+    if(command === `cw`) {
+      console.log(args);
+    };
 
-
-});
+  });
 
 client.login(token);
 //fetch
