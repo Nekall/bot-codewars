@@ -33,7 +33,6 @@ client.on("message", (message) => {
 
   });
 
-client.login(token);
 //fetch
 
 /*
@@ -45,3 +44,5 @@ client.on("message", async message => {
 	}
   */
 });
+
+client.login(token);
