@@ -43,5 +43,5 @@ client.on("message", async message => {
 		const { file } = await fetch(url).then(response => response.json());
 		message.channel.send(file);
 	}
+  */
 });
-*/
