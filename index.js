@@ -10,7 +10,7 @@ client.once("ready", () => {
    console.log("Bot Discord CODE WARS initialisé.");
 });
 
-client.on("message", (message) => {
+client.on("message", async message => {
 // Check si prefix présent + pas message du bot
   if(!message.content.startsWith(prefix) || message.author.bot) return;
 
