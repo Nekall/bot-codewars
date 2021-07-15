@@ -17,9 +17,14 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
+//help
+    if(command === "help") {
+      message.channel.send("!cw Pseudo");
+    };
+
 //easteregg
     if(command === "internet") {
-      message.channel.send('INTERNET!');
+      message.channel.send("INTERNET!");
     };
 
     //fetch info user cw
@@ -27,25 +32,24 @@ client.on("message", async message => {
       const encodedUsername = encodeURI(args.shift());
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
       if(userData.success === false){
-        message.channel.send('Pseudo Code Wars introuvable.');
+        message.channel.send("Pseudo CodeWars introuvable.");
         return;
       };
       const userDataEmbed = new Discord.MessageEmbed()
-        .setColor('#b1361e')
-        .setAuthor('Code Wars', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png', 'https://www.codewars.com/')
+        .setColor("#b1361e")
+        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars-square.png", "https://www.codewars.com/")
         .setDescription(`Informations du compte de ${userData.username}.`)
         .addFields(
-          { name: 'Rang:', value: userData.ranks.overall.name },
-          { name: 'Classement:',value: userData.leaderboardPosition },
-          { name: 'Nombre de Kata terminé:', value: userData.codeChallenges.totalCompleted },
-          { name: '\u200B', value: '\u200B' },
+          { name: "Rang:", value: userData.ranks.overall.name },
+          { name: "Classement:",value: userData.leaderboardPosition },
+          { name: "Nombre de Kata terminé:", value: userData.codeChallenges.totalCompleted },
+          { name: "\u200B", value: "\u200B" },
         )
         .setTimestamp()
-        .setFooter('Dev par Nekå', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png');
+        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
       message.channel.send(userDataEmbed);
-    } else if(command === 'cw' && args.length === 0) {
-
-      message.channel.send('Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: !cw Pseudo');
+    } else if(command === "cw" && args.length === 0) {
+      message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: !cw Pseudo");
     };
 
 });
