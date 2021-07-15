@@ -31,7 +31,7 @@ client.on("message", async message => {
       const file = await fetch(`${url}${args.shift()}`).then(response => response.json());
       message.channel.send("Check console");
       console.log(args);
-      console.log((file.honor).text());
+      console.log(file);
     } else if(command === 'cw' && args.length === 0) {
       message.channel.send('Il manque un pseudo CodeWars pour répondre à cette requête.');
     };
