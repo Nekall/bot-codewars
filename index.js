@@ -19,7 +19,17 @@ client.on("message", async message => {
 
 //help
     if(command === "help") {
-      message.channel.send("!cw Pseudo");
+      const helpEmbed = new Discord.MessageEmbed()
+        .setColor("#b1361e")
+        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars-square.png", "https://www.codewars.com/")
+        .addFields(
+          { name: "Pour voir les informations d'un utilisateur:", value: "!cw Pseudo" },
+          { name: "Internet ?",value: !internet },
+          { name: "\u200B", value: "\u200B" },
+        )
+        .setTimestamp()
+        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
+      message.channel.send(helpEmbed);
     };
 
 //easteregg
