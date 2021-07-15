@@ -32,20 +32,20 @@ client.on("message", async message => {
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
       message.channel.send("Check console");
 
-      const exampleEmbed = new Discord.MessageEmbed()
+      const userDataEmbed = new Discord.MessageEmbed()
         .setColor('#b1361e')
         .setAuthor('Code Wars', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png', 'https://www.codewars.com/')
         .setDescription(`Informations du compte de ${args.shift()}.`)
         .setThumbnail('https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png')
         .addFields(
-          { name: 'Rang:', value: file.ranks.overall.name, inline: true },
-          { name: 'Nombre de Kata terminé:', value: file.codeChallenges.totalCompleted, inline: true },
-          { name: 'Classement:', value: file.leaderboardPosition, inline: true },
+          { name: 'Rang:', value: userData.ranks.overall.name, inline: true },
+          { name: 'Nombre de Kata terminé:', value: userData.codeChallenges.totalCompleted, inline: true },
+          { name: 'Classement:', value: userData.leaderboardPosition, inline: true },
         )
         .setTimestamp()
         .setFooter('Bot dev par Nekå', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png');
 
-      channel.send(exampleEmbed);
+      channel.send(userDataEmbed);
       console.log(userData);
 
     } else if(command === 'cw' && args.length === 0) {
