@@ -26,7 +26,10 @@ client.on("message", async message => {
     if(command === 'cw' && args.length !== 0) {
       const encodedUsername = encodeURI(args.shift());
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
-      console.log(userData.success);
+      if(userData.success === false){
+        message.channel.send('Pseudo Code Wars introuvable.');
+        return;
+      };
       const userDataEmbed = new Discord.MessageEmbed()
         .setColor('#b1361e')
         .setAuthor('Code Wars', 'https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png', 'https://www.codewars.com/')
