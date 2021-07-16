@@ -77,7 +77,7 @@ client.on("message", async message => {
         {userData.ranks.languages.length > 0?
           userData.ranks.forEach(lang => {
             userDataEmbed.addField(lang.languages, lang.languages.name, true)
-          }
+          })
         :
           userDataEmbed.addField("Langages", "Aucunes", true)
         }
