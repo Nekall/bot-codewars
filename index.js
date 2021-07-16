@@ -77,9 +77,10 @@ client.on("message", async message => {
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
-        userData.ranks.languages.forEach(lang => {
+
+        for (let lang in userData.ranks.languages) {
           userDataEmbed.addField(lang, lang.name, true)
-        })
+        }
       message.channel.send(userDataEmbed);
     } else if(command === "cw" && args.length === 0) {
       message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: cw!info Pseudo");
