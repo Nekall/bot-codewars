@@ -7,7 +7,7 @@ const token = process.env.BOT_TOKEN;
 const prefix = "cw!";
 
 client.once("ready", () => {
-   console.log("Bot Discord CODE WARS initialisé.");
+   console.log("Bot Discord CODEWARS initialisé.");
 });
 
 client.on("message", async message => {
