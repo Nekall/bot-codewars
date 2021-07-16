@@ -76,10 +76,10 @@ client.on("message", async message => {
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
         if(userData.ranks.languages.length > 0){
           for(let i = userData.ranks.languages.length; i--;){
-            .addField(userData.ranks.languages, userData.ranks.languages.name, true)
+            embed.addField(userData.ranks.languages, userData.ranks.languages.name, true)
           }
         }else{
-          .addField("Langages", "Aucunes", true)
+          embed.addField("Langages", "Aucunes", true)
         }
           { name: "\u200B", value: "\u200B" },
         .setTimestamp()
