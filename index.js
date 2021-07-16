@@ -71,22 +71,23 @@ client.on("message", async message => {
         return;
       };
       const userDataEmbed = new Discord.MessageEmbed()
-        embed.setColor("#b1361e")
-        embed.setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
-        embed.setDescription(`Langages de programmation du compte de ${userData.username}.`)
-        {userData.ranks.languages.length > 0?
-          for(let i = userData.ranks.languages.length; i--;){
-            embed.addField(userData.ranks.languages, userData.ranks.languages.name, true)
-          }
-        :
-          embed.addField("Langages", "Aucunes", true)
-        }
-        embed.setTimestamp()
-        embed.setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
+        .setColor("#b1361e")
+        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
+        .setDescription(`Langages de programmation du compte de ${userData.username}.`)
+        .setTimestamp()
+        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
       message.channel.send(userDataEmbed);
     } else if(command === "cw" && args.length === 0) {
       message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: cw!info Pseudo");
     };
+
+    {userData.ranks.languages.length > 0?
+      for(let i = userData.ranks.languages.length; i--;){
+        userDataEmbed.addField(userData.ranks.languages, userData.ranks.languages.name, true)
+      }
+    :
+      userDataEmbed.addField("Langages", "Aucunes", true)
+    }
 
 });
 
