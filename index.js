@@ -57,30 +57,7 @@ client.on("message", async message => {
         )
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
-        for (let lang in userData.ranks.languages) {
-          userDataEmbed.addField(lang, lang)
-        }
-      message.channel.send(userDataEmbed);
-    } else if(command === "cw" && args.length === 0) {
-      message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: cw!info Pseudo");
-    };
-
-    //fetch languages user cw
-    if(command === 'lang' && args.length !== 0) {
-      const encodedUsername = encodeURI(args.shift());
-      const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
-      console.log(userData.ranks.languages);
-      if(userData.success === false){
-        message.channel.send("Pseudo CodeWars introuvable.");
-        return;
-      };
-      const userDataEmbed = new Discord.MessageEmbed()
-        .setColor("#b1361e")
-        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
-        .setDescription(`Langages de programmation du compte de ${userData.username}.`)
-        .setTimestamp()
-        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
-
+        .addField("Langages:")
         for (let lang in userData.ranks.languages) {
           userDataEmbed.addField(lang)
         }
