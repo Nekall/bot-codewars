@@ -78,8 +78,8 @@ client.on("message", async message => {
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
 
-        for (let lang in userData.ranks.languages) {
-          userDataEmbed.addField(lang, true)
+        for (let lang in JSON.stringify(userData.ranks.languages)) {
+          userDataEmbed.addField(lang, lang.name)
         }
       message.channel.send(userDataEmbed);
     } else if(command === "cw" && args.length === 0) {
