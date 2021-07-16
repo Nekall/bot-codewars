@@ -70,19 +70,15 @@ client.on("message", async message => {
         message.channel.send("Pseudo CodeWars introuvable.");
         return;
       };
-      const userDataEmbed = new Discord.MessageEmbed()
+      const userDataEmbed = new Discord.RichEmbed()
         .setColor("#b1361e")
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
-        {userData.ranks.languages.length > 0?
-          userData.ranks.forEach(lang => {
-            userDataEmbed.addField(lang.languages, lang.languages.name, true)
-          })
-        :
-          userDataEmbed.addField("Langages", "Aucunes", true)
-        }
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
+        userData.ranks.forEach(lang => {
+          userDataEmbed.addField(lang.languages, lang.languages.name, true)
+        })
       message.channel.send(userDataEmbed);
     } else if(command === "cw" && args.length === 0) {
       message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: cw!info Pseudo");
