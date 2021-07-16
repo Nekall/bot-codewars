@@ -75,13 +75,13 @@ client.on("message", async message => {
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
         .addFields(
-        if(userData.ranks.languages.length > 0){
+        {if(userData.ranks.languages.length > 0){
           for(let i = userData.ranks.languages.length; i--;){
             { name: userData.ranks.languages, value: userData.ranks.languages.name },
           }
         }else{
           { name: "Langages:", value: "Aucunes" },
-        }
+        }}
           { name: "\u200B", value: "\u200B" },
         )
         .setTimestamp()
