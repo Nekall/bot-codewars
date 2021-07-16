@@ -81,7 +81,6 @@ client.on("message", async message => {
         }else{
           embed.addField("Langages", "Aucunes", true)
         }
-          { name: "\u200B", value: "\u200B" },
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
       message.channel.send(userDataEmbed);
