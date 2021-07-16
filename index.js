@@ -74,11 +74,11 @@ client.on("message", async message => {
         embed.setColor("#b1361e")
         embed.setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         embed.setDescription(`Langages de programmation du compte de ${userData.username}.`)
-        if(userData.ranks.languages.length > 0){
+        {userData.ranks.languages.length > 0?
           for(let i = userData.ranks.languages.length; i--;){
             embed.addField(userData.ranks.languages, userData.ranks.languages.name, true)
           }
-        }else{
+        :
           embed.addField("Langages", "Aucunes", true)
         }
         embed.setTimestamp()
