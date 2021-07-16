@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const client = new Discord.Client();
 const token = process.env.BOT_TOKEN;
-const prefix = "!";
+const prefix = "cw!";
 
 client.once("ready", () => {
    console.log("Bot Discord CODE WARS initialisé.");
@@ -23,7 +23,7 @@ client.on("message", async message => {
         .setColor("#b1361e")
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .addFields(
-          { name: "Pour voir les informations d'un utilisateur:", value: "!cw Pseudo" },
+          { name: "Pour voir les informations d'un utilisateur:", value: "cw!info Pseudo" },
           { name: "Internet ?",value: "!internet" },
           { name: "\u200B", value: "\u200B" },
         )
@@ -38,7 +38,7 @@ client.on("message", async message => {
     };
 
     //fetch info user cw
-    if(command === 'cw' && args.length !== 0) {
+    if(command === 'info' && args.length !== 0) {
       const encodedUsername = encodeURI(args.shift());
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
       if(userData.success === false){
@@ -59,7 +59,36 @@ client.on("message", async message => {
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
       message.channel.send(userDataEmbed);
     } else if(command === "cw" && args.length === 0) {
-      message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: !cw Pseudo");
+      message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: cw!info Pseudo");
+    };
+
+    //fetch languages user cw
+    if(command === 'lang' && args.length !== 0) {
+      const encodedUsername = encodeURI(args.shift());
+      const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
+      if(userData.success === false){
+        message.channel.send("Pseudo CodeWars introuvable.");
+        return;
+      };
+      const userDataEmbed = new Discord.MessageEmbed()
+        .setColor("#b1361e")
+        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
+        .setDescription(`Langages de programmation du compte de ${userData.username}.`)
+        .addFields(
+        if(userData.ranks.languages.length > 0){
+          for(let i = userData.ranks.languages.length; i--;){
+            { name: userData.ranks.languages, value: userData.ranks.languages.name },
+          }
+        }else{
+          { name: "Langages:", value: "Aucunes" },
+        }
+          { name: "\u200B", value: "\u200B" },
+        )
+        .setTimestamp()
+        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
+      message.channel.send(userDataEmbed);
+    } else if(command === "cw" && args.length === 0) {
+      message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: cw!info Pseudo");
     };
 
 });
