@@ -66,6 +66,7 @@ client.on("message", async message => {
     if(command === 'lang' && args.length !== 0) {
       const encodedUsername = encodeURI(args.shift());
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
+      console.log(userData);
       if(userData.success === false){
         message.channel.send("Pseudo CodeWars introuvable.");
         return;
