@@ -76,8 +76,8 @@ client.on("message", async message => {
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
-        userData.ranks.languages.forEach(lang => {
-          userDataEmbed.addField(lang, lang.name, true)
+        userData.forEach(lang => {
+          userDataEmbed.addField(lang.username, lang.name, true)
         })
       message.channel.send(userDataEmbed);
     } else if(command === "cw" && args.length === 0) {
