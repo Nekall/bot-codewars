@@ -70,7 +70,7 @@ client.on("message", async message => {
         message.channel.send("Pseudo CodeWars introuvable.");
         return;
       };
-      const userDataEmbed = new Discord.RichEmbed()
+      const userDataEmbed = new Discord.MessageEmbed()
         .setColor("#b1361e")
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
