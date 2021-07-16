@@ -75,8 +75,8 @@ client.on("message", async message => {
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
         {userData.ranks.languages.length > 0?
-          for(let i = userData.ranks.languages.length; i--;){
-            userDataEmbed.addField(userData.ranks.languages, userData.ranks.languages.name, true)
+          userData.ranks.forEach(lang => {
+            userDataEmbed.addField(lang.languages, lang.languages.name, true)
           }
         :
           userDataEmbed.addField("Langages", "Aucunes", true)
