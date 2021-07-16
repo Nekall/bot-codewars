@@ -74,12 +74,14 @@ client.on("message", async message => {
         .setColor("#b1361e")
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
-        .addFields(
+        if(userData.ranks.languages.length > 0){
           for(let i = userData.ranks.languages.length; i--;){
-            { name: userData.ranks.languages, value: userData.ranks.languages.name },
+            .addField(userData.ranks.languages, userData.ranks.languages.name, true)
           }
+        }else{
+          .addField("Langages", "Aucunes", true)
+        }
           { name: "\u200B", value: "\u200B" },
-        )
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
       message.channel.send(userDataEmbed);
