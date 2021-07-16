@@ -24,6 +24,7 @@ client.on("message", async message => {
         .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .addFields(
           { name: "Pour voir les informations d'un utilisateur:", value: "cw!info Pseudo" },
+          { name: "Pour voir les langages d'un utilisateur:", value: "cw!lang Pseudo" },
           { name: "Internet ?",value: "!internet" },
           { name: "\u200B", value: "\u200B" },
         )
@@ -66,7 +67,6 @@ client.on("message", async message => {
     if(command === 'lang' && args.length !== 0) {
       const encodedUsername = encodeURI(args.shift());
       const userData = await fetch(`${url}${encodedUsername}`).then(response => response.json());
-      console.log(userData.ranks.languages);
       if(userData.success === false){
         message.channel.send("Pseudo CodeWars introuvable.");
         return;
