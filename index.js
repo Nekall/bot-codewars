@@ -21,7 +21,6 @@ client.on("message", async message => {
     if(command === "help") {
       const helpEmbed = new Discord.MessageEmbed()
         .setColor("#b1361e")
-        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .addFields(
           { name: "Pour voir les informations d'un utilisateur:", value: "cw!info Pseudo" },
           { name: "Pour voir les langages d'un utilisateur:", value: "cw!lang Pseudo" },
@@ -29,13 +28,17 @@ client.on("message", async message => {
           { name: "\u200B", value: "\u200B" },
         )
         .setTimestamp()
-        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
+        .setFooter("Dev par [Nekå](https://github.com/Nekall/bot-codewars)", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
       message.channel.send(helpEmbed);
     };
 
 //easteregg
     if(command === "internet") {
-      message.channel.send("INTERNET!");
+      const helpEmbed = new Discord.MessageEmbed()
+        .addFields(
+          { "[INTERNET!](https://www.youtube.com/watch?v=uK4-nUZiOH4)" }
+        )
+      message.channel.send(helpEmbed);
     };
 
     //fetch info user cw
@@ -46,13 +49,13 @@ client.on("message", async message => {
         message.channel.send("Pseudo CodeWars introuvable.");
         return;
       };
+      let rank = userData.leaderboardPosition ? userData.leaderboardPosition : "Cet·te utilisateur·rice n'est pas classé·e.";
       const userDataEmbed = new Discord.MessageEmbed()
         .setColor("#b1361e")
-        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
-        .setDescription(`Informations du compte de ${userData.username}.`)
+        .setDescription(`Informations du compte de [${userData.username}](https://www.codewars.com/users/${userData.username}).`)
         .addFields(
           { name: "Rang:", value: userData.ranks.overall.name },
-          { name: "Classement:",value: userData.leaderboardPosition },
+          { name: "Classement:",value: rank },
           { name: "Nombre de Kata terminé:", value: userData.codeChallenges.totalCompleted },
           { name: "\u200B", value: "\u200B" },
         )
@@ -73,7 +76,6 @@ client.on("message", async message => {
       };
       const userDataEmbed = new Discord.MessageEmbed()
         .setColor("#b1361e")
-        .setAuthor("CodeWars", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png", "https://www.codewars.com/")
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
