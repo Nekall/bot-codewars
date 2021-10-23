@@ -35,9 +35,7 @@ client.on("message", async message => {
 //easteregg
     if(command === "internet") {
       const helpEmbed = new Discord.MessageEmbed()
-        .addFields(
-          { "[INTERNET!](https://www.youtube.com/watch?v=uK4-nUZiOH4)" }
-        )
+        .addFields("[INTERNET!](https://www.youtube.com/watch?v=uK4-nUZiOH4)", "")
       message.channel.send(helpEmbed);
     };
 
@@ -60,7 +58,7 @@ client.on("message", async message => {
           { name: "\u200B", value: "\u200B" },
         )
         .setTimestamp()
-        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
+        .setFooter("Dev par [Nekå](https://github.com/Nekall/bot-codewars)", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
       message.channel.send(userDataEmbed);
     } else if(command === "cw" && args.length === 0) {
       message.channel.send("Il manque un pseudo CodeWars pour répondre à cette requête. Exemple: cw!info Pseudo");
@@ -78,7 +76,7 @@ client.on("message", async message => {
         .setColor("#b1361e")
         .setDescription(`Langages de programmation du compte de ${userData.username}.`)
         .setTimestamp()
-        .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
+        .setFooter("Dev par [Nekå](https://github.com/Nekall/bot-codewars)", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
 
         for (let lang in userData.ranks.languages) {
           userDataEmbed.addField(lang, "-")
