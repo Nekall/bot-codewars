@@ -34,9 +34,10 @@ client.on("message", async message => {
 
 //easteregg
     if(command === "internet") {
-      const helpEmbed = new Discord.MessageEmbed()
-        .addFields("[INTERNET!](https://www.youtube.com/watch?v=uK4-nUZiOH4)", "")
-      message.channel.send(helpEmbed);
+      const internetEmbed = new Discord.MessageEmbed()
+        .setTitle("INTERNET!")
+        .setURL("https://www.youtube.com/watch?v=uK4-nUZiOH4")
+      message.channel.send(internetEmbed);
     };
 
     //fetch info user cw
