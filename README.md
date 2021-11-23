@@ -14,7 +14,7 @@ Mais CodeWars c'est quoi ?
 
  - cw!info {pseudo}  
  Commande affichant le rang, l'honneur & le classement d'un utilisateur.  
- <img src="https://raw.githubusercontent.com/Nekall/bot-codewars/main/readme/view-bot-cw.PNG" alt="logo bot codewars" width="300">  
+ <img src="https://raw.githubusercontent.com/Nekall/bot-codewars/main/readme/view-bot-cw-v2.PNG" alt="logo bot codewars" width="300">  
  - cw!lang {pseudo}  
  Commande affichant les langages d'un utilisateur.  
 
