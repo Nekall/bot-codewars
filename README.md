@@ -11,16 +11,16 @@ Mais CodeWars c'est quoi ?
 
  - cw!help  
  Commande affichant un listing des commandes disponibles.  
-
+   
  - cw!info {pseudo}  
- Commande affichant le rang, l'honneur & le classement d'un utilisateur.  
- <img src="https://raw.githubusercontent.com/Nekall/bot-codewars/main/readme/view-bot-cw-v2.PNG" alt="logo bot codewars" width="300">  
- - cw!lang {pseudo}  
- Commande affichant les langages d'un utilisateur.  
-
+ Commande affichant le rang, l'honneur & le classement d'un·e utilisateur·rice.  
+    <img src="https://raw.githubusercontent.com/Nekall/bot-codewars/main/readme/view-bot-cw-v2.PNG" alt="logo bot codewars" width="300">   
+ - cw!lang {pseudo}    
+ Commande affichant les langages et les niveaux associés d'un·e utilisateur·rice.  
+   
  - cw!internet  
 Easter egg.  
-
+   
 **Informations complémentaires:**   
 
  - Module [discord.js](https://discord.js.org/)  
