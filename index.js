@@ -82,7 +82,7 @@ client.on("message", async message => {
 
         let count = 0;
         for (let lang in userData.ranks.languages) {
-          userDataEmbed.addField(`${lang} - ${Object.values(userData.ranks.languages)[count].name}`);
+          userDataEmbed.addField(lang, ` - ${Object.values(userData.ranks.languages)[count].name}`);
           count++;
         }
       message.channel.send(userDataEmbed);
