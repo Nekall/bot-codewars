@@ -76,7 +76,7 @@ client.on("message", async message => {
       };
       const userDataEmbed = new Discord.MessageEmbed()
         .setColor("#b1361e")
-        .setDescription(`Langages de programmation du compte de ${userData.username}.`)
+        .setDescription(`Langages de programmation du compte de [${userData.username}](https://www.codewars.com/users/${userData.username}).`)
         .setTimestamp()
         .setFooter("Dev par Nekå", "https://raw.githubusercontent.com/Nekall/bot-codewars/main/codewars.png");
 
