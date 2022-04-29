@@ -29,5 +29,5 @@ Easter egg.
 
   ―
 
-**NotaBene:**  
+<u>**NotaBene:**</u>  
 *C'est mon tout premier bot discord.*
