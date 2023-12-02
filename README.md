@@ -24,9 +24,8 @@ Easter egg.
 **Informations complémentaires:**   
 
  - Module [discord.js](https://discord.js.org/)  
- - Module [node-fetch](https://www.npmjs.com/package/node-fetch)  
- - Déployé sur [Heroku](https://www.heroku.com/)  
-
+ - Module [node-fetch](https://www.npmjs.com/package/node-fetch)
+   
   ―
 
 <u>**NotaBene:**</u>  
